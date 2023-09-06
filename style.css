@@ -1,0 +1,924 @@
+/* ---------- Fonts and cursors ---------- */
+
+:root {
+    --color-light-xl: #FFFFFF;
+    --color-light-l: #F6F6F6;
+    --color-light-s: #FAFAFA;
+    --color-dark-s: #CDCDCD;
+    --color-dark-m: #B2B2B2;
+    --color-dark-l: #545454;
+    --color-dark-xl: #4C4C4C;
+    --color-dark-2xl: #444444;
+    --color-dark-3xl: #292929;
+    --color-primary: #F1CDB3;
+    --color-primary-light: #FDDCC4;
+
+    --cursor-default: url(./assets/cursorDefault.svg);
+    --cursor-pointer: url(./assets/cursorPointer.svg);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    cursor: var(--cursor-default), auto;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+body {
+    background-color: var(--color-light-xl);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100dvh;
+    font-family: 'Arial';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+li {
+    list-style: none;
+}
+
+button {
+    align-items: center;
+    padding: 15px 45px;
+    font-family: 'Georgia';
+    font-weight: 400;
+    font-size: 1.133em;
+    line-height: 1.3;
+    letter-spacing: 0.06em;
+    color: var(--color-dark-3xl);
+    background: var(--color-primary);
+    border: none;
+    border-radius: 100px;
+    transition: all 0.5s;
+}
+
+button:hover {
+    background: var(--color-primary-light);
+    border-color: var(--color-primary-light);
+    cursor: var(--cursor-pointer), auto;
+}
+
+a:hover,
+li:hover {
+    cursor: var(--cursor-pointer), auto;
+    color: var(--color-light-s);
+}
+
+a[aria-disabled="true"] {
+    color: var(--color-light-s);
+}
+
+a[aria-disabled="true"]:hover {
+    cursor: var(--cursor-default), auto;
+}
+
+h2 {
+    font-family: 'Georgia';
+    font-weight: 400;
+    font-size: 35px;
+    line-height: 1.3;
+    letter-spacing: 0.06em;
+    color: var(--color-dark-l);
+}
+
+.container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+.burger-menu {
+    display: none;
+}
+
+.popup {
+    position: fixed;
+    top: 75px;
+    right: -100%;
+}
+
+/* ---------- Header ---------- */
+
+header {
+    position: absolute;
+    left: 0;
+    right: 0;
+}
+
+.header__container {    
+    padding-top: 30px;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo__title {
+    font-family: 'Georgia';
+    font-size: 2.13em;
+    line-height: 1.1;
+    letter-spacing: 0.06em;
+    color: var(--color-primary);
+    margin-bottom: 0.2em;
+}
+
+.logo__subtitle {
+    font-family: 'Arial';
+    font-size: 0.86em;
+    letter-spacing: 0.1em;
+    color: var(--color-light-xl);
+    margin-left: 0.27em;
+}
+
+.nav__list {
+    display: flex;
+    gap: 0 2.4em;
+    padding-bottom: 0.33em;
+}
+
+.nav__list a::after {
+    background-color: var(--color-primary);
+    display: block;
+    content: "";
+    height: 3px;
+    width: 0%;
+    transition: width 0.3s;
+}
+
+.nav__list a:active:after,
+.nav__list a:focus:after {
+    width: 100%;
+}   
+
+a[aria-disabled="true"]::after {
+    width: 100%;
+}
+
+.nav__link {
+    color: var(--color-dark-s);
+}
+
+/* ---------- Not only section ---------- */
+
+#not-only {
+    background: url(./assets/noise_transparent@2x.png),
+                radial-gradient(100% 215.42% at 0% 0%, #5B483A 0%, #262425 100%), #211F20;
+    padding-top: 12em;
+}
+
+.start__container {
+    display: flex;
+}
+
+.start__info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 10.9em;
+    margin-right: 2em;
+}
+
+.start__header {
+    font-family: 'Georgia';
+    font-weight: 400;
+    font-size: 2.93em;
+    line-height: 1.3;
+    color: var(--color-light-xl);
+    margin-bottom: 0.9em;
+}
+
+.start__text {
+    color: var(--color-dark-s);
+    margin-bottom: 2.95em;
+}
+
+/* ---------- About section ---------- */
+
+#about {
+    margin-bottom: 6.66em;
+}
+
+#about .container {
+    padding: 5.33em 6em 0;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.about__info {
+    padding-top: 1em;
+    max-width: 28.66em;
+    display: flex;
+    flex-direction: column;
+    gap: 1.6em 0;
+}
+
+/* ---------- Our friends section ---------- */
+
+#our-friends {
+    background-color: var(--color-light-l);
+    padding-top: 5.33em;
+    padding-bottom: 6.66em;
+}
+
+#our-friends .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.pets__header {
+    text-align: center;
+    margin-bottom: 1.7em;
+}
+
+/* ---------- Slider ---------- */
+
+.pets__slider {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 3.33em;
+}
+
+.slider__left,
+.slider__right {
+    width: 3.16em;
+    height: 3.16em;
+    padding: 0;
+    margin-top: -3.5em;
+    background-color: var(--color-light-l);
+    border: 2px solid var(--color-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.slider__right {
+    transform: rotate(180deg);
+}
+
+.slider__main {
+    display: flex;
+    justify-content: space-between;
+    gap: 6em;
+    margin-bottom: 4em;
+}
+
+.pet__form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 1.66em;
+    gap: 1.65em;
+    background-color: var(--color-light-s);
+    cursor: var(--cursor-pointer), auto;
+    transition: all 0.3s;
+}
+
+.pet__form:hover {
+    box-shadow: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
+    cursor: var(--cursor-pointer), auto;
+}
+
+.pet__name {
+    font-family: 'Georgia';
+    font-size: 1.33em;
+    letter-spacing: 0.06em;
+    color: var(--color-dark-l);
+}
+
+.pet__button {
+    background: var(--color-light-s);
+    border: 2px solid var(--color-primary);
+    margin-bottom: 1.8em;
+}
+
+.additional-buttons {
+    display: none;
+}
+
+/* ---------- Help shelter section ---------- */
+
+#help {
+    padding-top: 5.33em;
+    padding-bottom: 6.66em;
+}
+
+.help__header {
+    text-align: center;
+    margin-bottom: 1.65em;
+}
+
+.help__main {
+    padding: 0 5.8em;
+}
+
+.help__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 3.45em 7.95em;
+}
+
+.help__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2em;
+}
+
+.help__item-image {
+    width: 4em;
+}
+
+.help__item-title {
+    font-family: 'Georgia';
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 1.15;
+    text-align: center;
+    letter-spacing: 0.06em;
+    color: var(--color-dark-l);
+}
+
+/* ---------- In addition section ---------- */
+
+#in-addition {
+    background-color: var(--color-light-l);
+    padding-top: 5.43em;
+    padding-bottom: 6.66em;
+}
+
+#in-addition .container {
+    display: flex;
+    padding: 0 12.13em;
+}
+
+.donation__image {
+    height: 90%;
+    margin-top: 0.9em;
+    margin-right: 2em;
+}
+
+.donation__content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.35em;
+}
+
+.donation__subtitle {
+    font-family: 'Georgia';
+    font-weight: 400;
+    font-size: 1em;
+    line-height: 1.1;   
+    letter-spacing: 0.06em;
+    color: var(--color-dark-l);
+}
+
+.donation__button {
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    border-radius: 9px;
+    max-width: 20.75em;
+    font-family: 'Georgia';
+    font-weight: 400;
+    font-size: 1.133em;
+    line-height: 1.3;
+    letter-spacing: 0.06em;
+    color: var(--color-dark-3xl);
+    background: var(--color-primary);
+    transition: all 0.5s;
+}
+
+.donation__button:hover {
+    background: var(--color-primary-light);
+    border-color: var(--color-primary-light);
+    cursor: var(--cursor-pointer), auto;
+}
+
+.donation__button-image {
+    margin-right: 1em;
+}
+
+.donation__button-text {
+    font-family: 'Georgia';
+    font-weight: 400;
+    font-size: 1.18em;
+    line-height: 1.15;
+    letter-spacing: 0.06em;
+    color: var(--color-dark-l);
+}
+
+.donation__description {
+    font-family: 'Arial';
+    font-style: italic;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 1.5;
+    color: var(--color-dark-m);
+}
+
+/* ---------- Footer section ---------- */
+
+footer {
+    background: url(./assets/noise_transparent@2x.png), radial-gradient(110.67% 538.64% at 5.73% 50%, #513D2F 0%, #1A1A1C 100%), #211F20;
+    padding-top: 3.73em;
+}
+
+footer .container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer__header {
+    font-family: 'Georgia';
+    font-weight: 400;
+    font-size: 35px;
+    line-height: 1.3;
+    letter-spacing: 0.06em;
+    color: var(--color-light-xl);
+    margin-bottom: 1.1em;
+}   
+
+.footer__list {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer__link {
+    display: flex;
+    gap: 1.33em;
+    align-items: center;
+}
+
+.footer__link:nth-child(1) {
+    margin-bottom: 2.5em;
+}
+
+.footer__center .footer__header {
+    margin-left: -0.2em;
+}
+
+.footer__list-text {
+    font-family: 'Georgia';
+    font-weight: 400;
+    font-size: 1.33em;
+    line-height: 1.15;
+    letter-spacing: 0.06em;
+    color: #F1CDB3;
+}
+
+.second-list {
+    margin-left: -5px;
+}
+
+.third-link {
+    margin-top: -0.55em;
+}
+
+.footer__image {
+    margin-top: -20px;
+}
+
+/* breakpoint for our friends and in addition sections */
+
+@media screen and (max-width: 1200px) {
+    .pets__slider {
+        gap: 1em;
+    }
+
+    .slider__main {
+        gap: 1.5em;
+        margin-bottom: 4em;
+    }
+
+    #in-addition .container {
+        padding: 0 2.13em;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .container {
+        max-width: 768px;
+        padding: 0 30px;
+    }
+    
+    .header__container {    
+        padding-top: 30px;
+    }
+
+    /* ---------- Not only section ---------- */
+
+    #not-only {
+        padding-top: 0;
+    }
+
+    .start__container {
+        flex-direction: column;
+    }
+
+    .start__info {
+        margin-top: 10em;
+        padding-left: 8.2em;
+    }
+
+    .start__text {
+        max-width: 31em;
+    }
+
+    .start__button {
+        align-self: center;
+        margin-left: -5.6em;
+        margin-bottom: 5.75em;
+    }
+
+    .start__image {
+        max-width: 569px;
+        width: 100%;
+        display: flex;
+        align-self: center;
+        margin-left: 8.8em;
+    }
+
+    /* ---------- About section ---------- */
+
+    #about .container {
+        padding: 4.43em 11.3em 0;
+        flex-direction: column;
+    }
+
+    .about__image {
+        display: flex;
+        align-self: center;
+        order: 3;
+        max-width: 20em;
+    }
+
+    .about__info {
+        margin-bottom: 5.33em;
+    }
+
+    /* ---------- Our friends section ---------- */
+
+    .pets__slider {
+        gap: 0.6em;
+    }
+
+    .slider__main {
+        gap: 2.96em;
+    }
+
+    .pet__form:nth-child(3) {
+        display: none;
+    }
+
+    .additional-buttons {
+        display: none;
+    }
+
+    /* ---------- Help shelter section ---------- */
+
+    .help__main {
+        padding: 0 0.73em;
+    }
+
+    .help__list {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 3.6em 0;
+    }
+
+    /* ---------- In addition section ---------- */
+
+    #in-addition .container {
+        flex-direction: column;
+        padding: 0 12.9em;
+    }
+
+    .donation__image {
+        display: flex;
+        align-self: center;
+        order: 2;
+        width: 505px;
+        margin-top: 4em;
+        margin-right: 0;
+    }
+
+    /* ---------- Footer section ---------- */
+
+    footer {
+        padding: 2rem 2.1rem 0;
+    }
+
+    footer .container {
+        padding-bottom: 0;
+        flex-wrap: wrap;
+        gap: 1.8rem 2rem;
+    }
+
+    .footer__center {
+        margin-right: 0.5rem;
+    }
+
+    .footer__image {
+        margin: 0 auto;
+    }
+}
+
+@media screen and (max-width: 760px) {
+
+    .container {
+        padding: 2rem 0;
+    }
+
+    .header__container {
+        padding-left: 1.3rem;
+        padding-right: 1.3rem;
+    }
+
+    /* Start section */
+
+    .start__container {
+        padding: 0 10px;
+    }
+
+    .start__info {
+        padding: 0;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .start__header {
+        font-size: 25px;
+        text-align: center;
+        margin-bottom: 2.6rem;
+        margin-left: 1.67rem;
+        letter-spacing: 0.05em;
+    }
+
+    .start__text {
+        text-align: center;
+        min-width: 300px;
+        margin-left: 1.7rem;
+    }
+
+    .start__button {
+        margin: -0.15rem 0 6.7rem 1.67rem;
+    }
+
+    .start__image {
+        margin-left: 2.5rem;
+        max-width: 260px;
+    }
+
+    /* Burger menu */
+
+    .nav__list {
+        display: none;
+    }
+
+    .burger-menu {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        width: 30px;
+        height: 20px;
+        cursor: var(--cursor-pointer), auto;
+    }
+
+    .burger-bar {
+        border: 2px solid var(--color-primary);
+    }
+
+    .popup {
+        position: fixed;
+        right: -100%;
+        width: 40%;
+        height: 46.5%;
+        background-color: #fff;
+        z-index: 100;
+        border-radius: 10px;
+        opacity: 90%;
+        transition: 0.7s;
+    }
+
+    .popup.open {
+        right: 0;
+    }
+
+    .nav-menu-mod {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: start;
+        border: 1px solid #E06733;
+        border-radius: 10px;
+    }
+
+    .nav-menu-mod > li > a {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        padding: 17px 0;
+        font-size: 20px;
+        font-weight: 700;
+        color: #499A18;
+    }
+    
+    .burger-menu.active {
+        transform: rotate(90deg);
+        transition: all 0.7s;
+    }
+
+    /* About us section */
+
+    #about {
+        margin-bottom: 2.8rem;
+    }
+
+    #about .container {
+        padding: 1.6rem 1.46rem 0;
+        align-items: center;
+    }
+
+    .about__header {
+        font-size: 25px;
+        text-align: center;
+    }
+
+    .about__text {
+        text-align: justify;
+    }
+
+    .about__image {
+        margin-top: -2.7rem;
+        max-width: 260px;
+    }
+
+    /* Our friends section */
+
+    #our-friends {
+        padding: 0.6rem 0 0;
+    }
+
+    #our-friends .container {
+        padding-bottom: 2.9rem;
+    }
+
+    .pets__header {
+        font-size: 25px;
+    }
+
+    .pet__form:nth-child(2) {
+        display: none;
+    }
+
+    .pets__slider .slider__left,
+    .pets__slider .slider__right {
+        display: none;
+    }
+
+    .additional-buttons {
+        margin-top: 0.9rem;
+        display: flex;
+        gap: 5rem;
+        margin-bottom: 2.1rem;
+    }
+
+    /* Help section */
+
+    #help {
+        padding: 0;
+    }
+
+    #help .container {
+        padding: 2.5rem 0 2.7rem;
+    }
+
+    .help__header {
+        font-size: 25px;
+    }
+    
+    .help__item-image {
+        width: 3rem;
+        margin-bottom: 0;
+    }
+
+    .help__item-title {
+        margin-top: -0.5rem;
+        font-size: 15px;
+    }
+
+    .help__list {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.85rem 2rem;
+    }
+
+    /* in addition section */
+
+    #in-addition {
+        padding: 0;
+    }
+
+    #in-addition .container {
+        padding: 2.5rem 1.26rem 2.8rem;
+    }
+
+    .donation__image {
+        max-width: 260px;
+        margin-top: 2.7rem;
+    }
+
+    .donation__header {
+        font-size: 25px;
+        text-align: center;
+        margin-bottom: 0.2rem;
+    }
+
+    .donation__subtitle {
+       font-size: 15px;
+       letter-spacing: 0;
+       margin-bottom: 0.1rem;
+    }
+
+    .donation__button {
+        display: flex;
+        justify-content: start;
+        padding-right: 0.7rem;
+    }
+
+    .donation__button-text {
+        font-size: 15px;
+    }
+
+    .donation__description {
+        text-align: justify;
+    }
+
+    /* footer section */    
+
+    footer {
+        padding: 0;
+    }
+
+    footer .container {
+        padding: 1.8rem 1.33rem 0;
+        justify-content: center;
+        gap: 0;
+    }
+
+    .footer__header {
+        font-size: 25px;
+        text-align: center;
+        margin-bottom: 2.3rem;
+    }
+
+    .footer__link:nth-child(1) {
+        margin-bottom: 2.8rem;
+    }
+
+    .second-list {
+        margin-left: -30px;
+    }
+
+    .footer__center .footer__header {
+        margin-left: 0;
+    }
+
+    .footer__center .footer__header {
+        margin-top: -0.4rem;
+    }
+
+    .third-link .footer__list-text {
+        font-size: 18px;
+    }
+    
+    .third-link {
+        margin-top: 0;
+    }
+
+    .footer__image {
+        margin: 0;
+        max-width: 260px;
+    }
+}
